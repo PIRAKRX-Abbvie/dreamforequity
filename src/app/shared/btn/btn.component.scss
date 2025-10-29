@@ -1,0 +1,162 @@
+@import "styles/variables";
+
+:host {
+  display: inline-flex;
+
+  &.full-wide {
+    width: 100%;
+
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
+// Base
+.btn {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: 2px solid transparent;
+  line-height: 18px;
+  box-shadow: none;
+  font-size: 16px;
+  border-radius: 100px;
+  color: inherit;
+
+  &.link {
+    color: red;
+  }
+  .button-text {
+    display: flex;
+    align-items: center;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: 2px solid color(primary);
+  }
+
+  // Primary Btn
+  &.btn-primary {
+    @include font(primary, bold);
+
+    color: color(primary);
+    border-color: color(primary);
+    border: 2px solid;
+    padding: 20px 40px;
+    &:hover,
+    &:focus {
+      color: color(foreground, lightest);
+      background-color: color(primary);
+      border-color: color(primary);
+    }
+  }
+
+  &.btn-primarySolid {
+    @include font(primary, bold);
+    color: color(primary, contrast);
+    background-color: color(primary, base);
+    padding: 20px 40px;
+    &:hover,
+    &:focus {
+      color: color(foreground, lightest);
+      background-color: color(primary);
+      border-color: color(primary);
+    }
+  }
+  &.btn-primarySmall {
+    @include font(primary, bold);
+    color: color(primary, base);
+    border-color: color(primary, base);
+    background-color: transparent;
+    border: 2px solid;
+    font-size: 12px;
+    padding: 12px 24px;
+    font-size: 14px;
+    &:hover,
+    &:focus {
+      color: color(foreground, lightest);
+      background-color: color(primary);
+      border-color: color(primary);
+    }
+  }
+  &.btn-primarySmallSolid {
+    @include font(primary, bold);
+    color: color(primary, contrast);
+    border-color: color(primary, base) !important;
+    background-color: color(primary, base);
+    border: 2px solid;
+    font-size: 12px;
+    padding: 12px 24px;
+    &:hover,
+    &:focus {
+      color: color(foreground, lightest);
+      background-color: color(primary);
+      border-color: color(primary, base);
+    }
+  }
+
+  // Secondary Btn
+  &.btn-secondary {
+    color: color(foreground, lightest);
+    border-color: color(foreground, lightest);
+    padding: 20px 40px;
+    &:hover,
+    &:focus {
+      background-color: color(foreground, lightest);
+      color: color(primary);
+    }
+  }
+  &.btn-secondarySmall {
+    color: color(foreground, lightest);
+    border-color: color(foreground, lightest);
+    padding: 12px 24px;
+    font-size: 14px;
+    &:hover,
+    &:focus {
+      background-color: color(foreground, lightest);
+      color: color(primary);
+    }
+  }
+
+  &.btn-secondarySolid {
+    color: color(secondary, contrast);
+    background-color: color(secondary, light);
+    padding: 20px 40px;
+    &:hover,
+    &:focus {
+      background-color: color(foreground, lightest);
+      color: color(primary);
+    }
+  }
+
+  &.btn-secondarySmallSolid {
+    color: color(secondary, contrast);
+    background-color: color(secondary, light);
+    padding: 12px 24px;
+    font-size: 14px;
+    &:hover,
+    &:focus {
+      background-color: color(foreground, lightest);
+      color: color(primary);
+    }
+  }
+
+  // Link Btn
+
+  // Disabled Btn
+  &.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .button-icon__right {
+    padding-left: 40px;
+  }
+}

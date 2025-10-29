@@ -1,0 +1,10 @@
+<section id="image-grid">
+  <app-section-content>
+   <ngx-masonry [options]="masonryOptions" [ordered]="true" class="masonry-container">
+    <div ngxMasonryItem  *ngFor="let image of masonryImages" class="masonry-item">
+      <div *ngIf="image.content" class="masonry-content" [innerHTML]="image.content"></div>
+      <img *ngIf="image.url" class="masonry-image" [src]="image.url">
+    </div>
+  </ngx-masonry>
+  </app-section-content>
+</section>

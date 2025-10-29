@@ -1,0 +1,22 @@
+<div class="mobile-menu" [@mobileOpenTrigger]="animationState">
+    <div class="container">
+        <div class="links">
+            <app-btn class="link" (click)="onClickScroll('about')">
+                About the Report
+            </app-btn>
+            <app-btn class="link" (click)="onClickScroll('video-slider')">
+                Stats &amp; Stories
+            </app-btn>
+            <app-btn class="link" (click)="onClickScroll('about-dream-initiative')">
+                The DREAM Initiative®
+            </app-btn>
+            <a href="https://www.med.unc.edu/webguide/wp-content/uploads/sites/419/2019/07/AdobePDF.pdf"
+                target="_blank">
+                <app-btn class="btn btn-primary">
+                    VIEW REPORT
+                </app-btn>
+            </a>
+
+        </div>
+    </div>
+</div>

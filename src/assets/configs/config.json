@@ -1,0 +1,11 @@
+{
+  "stage": "local",
+  "apiBase": "https://dev-dxp-appsapi.allerganaesthetics.com/api",
+  "googleAnalytics": {
+    "id": "GTM-PZBXL39"
+  },
+  "recaptchaKey": "DREAMFOREQUITY",
+  "siteOrigin": "DREAMFOREQUITY",
+  "siteLanguage": "en-us",
+  "recipient": "sfosam@definedlogic.com"
+}

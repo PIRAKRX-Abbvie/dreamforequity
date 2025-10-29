@@ -1,0 +1,102 @@
+@import "styles/variables";
+
+section {
+    background: linear-gradient(to right, #574337, #624c3f);
+    .section-container {
+        flex-direction: row;
+        margin: 75px 0;
+        @media (max-width: breakpoint(md,max)) {
+            flex-direction: column;
+            margin: 0;
+            justify-content: center;
+            align-items: center;
+        }
+        .content-container { 
+            z-index: 1;
+        }
+        .image-container {
+            z-index: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: relative;
+            padding: 0;
+            max-width: 50%;
+            height: 500px;
+            @media (max-width: breakpoint(md,max)) {
+                max-width: 100%;
+                justify-content: center;
+            }
+            img {
+                width: auto;
+                height: 100%;
+                max-height: 100%;
+                &.mobile {
+                    display: none;
+                }
+                @media (max-width: breakpoint(md,max)) {
+                    width: 100%;
+                    height: auto;
+                    display: none;
+                    &.mobile {
+                        display: inherit;
+                    }
+                }
+            }
+        }
+    }
+
+    .container {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: flex-end;
+        > * {
+            flex: 1;
+        }
+        @media (max-width: breakpoint(md, max)) {
+            flex-direction: column;
+        }
+        .col {
+            width: 50%;
+            padding: 50px 0;
+            margin: 0;
+            @media (max-width: breakpoint(md,max)) {
+                width: 100%;
+                padding: 30px;
+            }
+            &.content {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                max-width: 75%;
+                @media (max-width: breakpoint(md,max)) {
+                    max-width: 100%;
+                    margin: 0;
+                }
+            }
+            .title {
+                font-size: 33px;
+                margin: 0;
+                margin-bottom: 15px;
+                color: color(primary, contrast);
+                text-align: left;
+            }
+            .content {
+                font-size: 16px;
+                line-height: 30px;
+                color: color(primary, contrast);
+                margin-top: 10px;
+                a { 
+                    color: color(primary, contrast);
+                    text-decoration: underline;
+                    &:hover { 
+                        text-decoration: none;
+                        color: color(secondary, darkText);
+                    }
+                }
+            }
+        }
+    }
+}

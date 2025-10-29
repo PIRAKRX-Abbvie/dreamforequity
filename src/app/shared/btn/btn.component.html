@@ -1,0 +1,15 @@
+<button
+  class="btn btn-{{ buttonStyles[style] }}"
+  [class.disabled]="disabled"
+  [attr.aria-disabled]="disabled"
+  [type]="type"
+  tabindex="0"
+  (click)="onClickClick($event)"
+>
+  <span class="button-text">
+    <ng-content></ng-content>
+  </span>
+  <span class="button-icon__right" *ngIf="hasRightIcon()">
+    <app-icon [type]="icon"></app-icon>
+  </span>
+</button>

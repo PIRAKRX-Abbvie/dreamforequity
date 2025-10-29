@@ -1,0 +1,56 @@
+@import "styles/variables";
+section {
+    min-height: 500px;
+    background: color(background, lighter);
+    padding: 50px 30px;
+    padding-bottom: 0;
+
+    .container {
+        color: color(secondary, contrast);
+        display: flex;
+        align-items: center;
+        max-width: 100%;
+        padding: 0;
+        padding-top: 20px;
+        padding-bottom: 50px;
+        @media (max-width: breakpoint(md, max)) {
+            flex-direction: column;
+        }
+        .col {
+            @media (max-width: breakpoint(md, max)) {
+                width: 100%;
+                padding-right: 0;
+                &.video-col { 
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 20px 0;
+                }
+            }
+            .section-title {
+                font-size: 33px;
+                padding: 10px 0;
+                @media (max-width: breakpoint(md, max)) {
+                    font-size: 30px;
+                }
+            }
+            .section-content {
+                font-weight: lighter;
+                font-size: 18px;
+                line-height: 24px;
+                max-width: 90%;
+                @include font(primary, medium);
+            }
+            app-btn {
+                color: color(secondary, light);
+                margin-top: 20px;
+                @media (max-width: breakpoint(md, max)) {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

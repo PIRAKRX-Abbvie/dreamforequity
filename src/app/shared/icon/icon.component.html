@@ -1,0 +1,14 @@
+<ng-container *ngIf="icon">
+  <ng-container *ngIf="view === views.clickable">
+    <fa-icon
+      [icon]="icon"
+      [spin]="spin"
+      tabindex="0"
+      (keydown.enter)="onEnter()"
+      class="clickable"
+    ></fa-icon>
+  </ng-container>
+  <ng-container *ngIf="view === views.default">
+    <fa-icon [icon]="icon" [spin]="spin"></fa-icon>
+  </ng-container>
+</ng-container>

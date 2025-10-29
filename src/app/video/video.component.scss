@@ -1,0 +1,12 @@
+:host {
+    max-width: 100%;
+}
+
+.video {
+    margin-top: 25px;
+    max-width: 100%;
+}
+
+::ng-deep iframe {
+   max-width: 100% !important;
+}

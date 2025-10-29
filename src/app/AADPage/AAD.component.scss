@@ -1,0 +1,11 @@
+@import 'styles/variables';
+
+main {
+  height: 100%;
+  max-width: breakpoint(lg,max);
+}
+
+.main-content {
+  padding: 0;
+}
+

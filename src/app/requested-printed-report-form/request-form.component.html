@@ -1,0 +1,247 @@
+<section id="request-form">
+    <app-section-content>
+        <div class="container">
+            <div class="col">
+                <h1 class="title">
+                    Request Printed Report
+                </h1>
+                <ng-container *ngIf="recaptchaSiteKey; else loading">
+                    <ng-container *ngIf="errored">
+                        <div class="error-msg" i18n>
+                            An error occurred submitting your form. Please try again later.
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="!errored">
+                        <form *ngIf="!submitted" [formGroup]="form" aria-labelledby="contact-us-form-title">
+                            <div class="row title-row">
+                                <div class='form-title'>Share your shipping information to receive a printed version of
+                                    the Forces of Beauty™ report.</div>
+
+                                <div class="form-required">
+                                    * Required
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 form-group" [ngClass]="{
+                    'has-error': hasErrors(form.controls.firstName)
+                  }">
+                                    <label for="firstNameInput" class="required" i18n> First Name</label>
+                                    <input type="text" class="form-control" id="firstNameInput"
+                                        formControlName="firstName"
+                                        [attr.aria-invalid]="hasErrors(form.controls.firstName)"
+                                        aria-errormessage="firstName-errors" />
+                                    <small *ngIf="hasErrors(form.controls.firstName)" class="errors"
+                                        id="firstName-errors">
+                                        <div *ngIf="isError(form.controls.firstName, 'required')" i18n>
+                                            First name is required.
+                                        </div>
+                                    </small>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-12 form-group" [ngClass]="{
+                  'has-error': hasErrors(form.controls.lastName)
+                  }">
+                                    <label for="lastNameInput" class="required" i18n> Last Name</label>
+                                    <input type="text" class="form-control" id="lastNameInput"
+                                        formControlName="lastName"
+                                        [attr.aria-invalid]="hasErrors(form.controls.lastName)"
+                                        aria-errormessage="lastName-errors" />
+                                    <small *ngIf="hasErrors(form.controls.lastName)" class="errors"
+                                        id="lastName-errors">
+                                        <div *ngIf="isError(form.controls.lastName, 'required')" i18n>
+                                            Last name is required.
+                                        </div>
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 form-group" [ngClass]="{
+                              'has-error': hasErrors(form.controls.email)
+                            }">
+                                    <label for="emailInput" class="required" i18n> Email</label>
+                                    <input type="text" class="form-control" id="emailInput" formControlName="email"
+                                        [attr.aria-invalid]="hasErrors(form.controls.email)"
+                                        aria-errormessage="email-errors" />
+                                    <small *ngIf="hasErrors(form.controls.email)" class="errors" id="email-errors">
+                                        <div *ngIf="isError(form.controls.email, 'required')" i18n>
+                                            Email is required.
+                                        </div>
+                                        <div *ngIf="isError(form.controls.email, 'email')" i18n>
+                                            Please enter a valid email.
+                                        </div>
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 form-group" [ngClass]="{
+                                                          'has-error': hasErrors(form.controls.address1)
+                                                        }">
+                                    <label for="addressInput" class="required" i18n> Address 1 </label>
+                                    <input type="text" class="form-control" id="addressInput" formControlName="address1"
+                                        [attr.aria-invalid]="hasErrors(form.controls.address1)"
+                                        aria-errormessage="address1-errors" />
+                                    <small *ngIf="hasErrors(form.controls.address1)" class="errors"
+                                        id="address1-errors">
+                                        <div *ngIf="isError(form.controls.address1, 'required')" i18n>
+                                            Address is required.
+                                        </div>
+                                        <div *ngIf="isError(form.controls.address1, 'address1')" i18n>
+                                            Please enter a valid address.
+                                        </div>
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 form-group">
+                                    <label for="addressInput2" i18n> Address 2 </label>
+                                    <input type="text" class="form-control" id="addressInput2"
+                                        formControlName="address2" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 form-group" [ngClass]="{
+                                                          'has-error': hasErrors(form.controls.city)
+                                                        }">
+                                    <label for="cityInput" class="required" i18n> City </label>
+                                    <input type="text" class="form-control" id="cityInput" formControlName="city"
+                                        [attr.aria-invalid]="hasErrors(form.controls.city)"
+                                        aria-errormessage="city-errors" />
+                                    <small *ngIf="hasErrors(form.controls.city)" class="errors" id="city-errors">
+                                        <div *ngIf="isError(form.controls.city, 'required')" i18n>
+                                            City is required.
+                                        </div>
+                                        <div *ngIf="isError(form.controls.city, 'email')" i18n>
+                                            Please enter a valid city.
+                                        </div>
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 form-group select-container" [ngClass]="{
+                                    'has-error': hasErrors(form.controls.state)
+                                }">
+                                    <label for="state" class="required" i18n>State</label>
+                                    <select class="custom-select mb-3 errors" formControlName="state">
+                                        <option>
+                                            Select state
+                                        </option>
+                                        <option *ngFor="let state of usState">
+                                            {{ state.abbreviation }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 form-group" [ngClass]="{
+                                                          'has-error': hasErrors(form.controls.zip)
+                                                        }">
+                                    <label for="zipInput" class="required" i18n> Zip Code </label>
+                                    <input type="text" class="form-control" id="zipInput" formControlName="zip"
+                                        [attr.aria-invalid]="hasErrors(form.controls.zip)"
+                                        aria-errormessage="zip-errors" />
+                                    <small *ngIf="hasErrors(form.controls.zip)" class="errors" id="zip-errors">
+                                        <div *ngIf="isError(form.controls.zip, 'required')" i18n>
+                                            Zip Code is required.
+                                        </div>
+                                        <div *ngIf="isError(form.controls.zip, 'zip')" i18n>
+                                            Please enter a valid Zip Code.
+                                        </div>
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="checkbox-container">
+                                        <div class="input-container">
+                                            <input (change)="isHealthCareCheckboxChange($event)" type="checkbox"
+                                                id="checkbox2" formControlName="checkbox2" />
+                                        </div>
+                                        <label for='checkbox2' class="consent-label" i18n>
+                                            I am a healthcare professional.
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12" [ngClass]="{
+                    'has-error': hasErrors(form.controls.checkbox)
+                  }">
+                                    <div class="checkbox-container">
+                                        <div class="input-container">
+                                            <input type="checkbox" id="checkbox" formControlName="checkbox"
+                                                [attr.aria-invalid]="hasErrors(form.controls.checkbox)" />
+                                        </div>
+                                        <label for='checkbox' class="required consent-label" i18n>
+                                            I consent to receive AbbVie Inc. communications about its products,
+                                            services, research, events, programs, and other
+                                            information that may be of interest to me using the contact information I
+                                            provide. I may withdraw my consent at any
+                                            time.
+                                            <br />
+                                            <br />
+                                            The categories of personal information collected in this form include name
+                                            and contact information. The personal
+                                            information collected will be used to distribute the Forces of Beauty™
+                                            report and for future promotional communications.
+                                            For more information about the categories of personal information about you
+                                            that may be collected by Allergan
+                                            Aesthetics, Inc., an AbbVie company, and the purposes for which Allergan may
+                                            use personal information about you, please
+                                            see Allergan’s <a target='_blank' class="privacy-notice"
+                                                href="https://www.abbvie.com/privacy.html">Privacy
+                                                Notice</a>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <re-captcha #captchaRef="reCaptcha" [siteKey]="recaptchaSiteKey" size="invisible"
+                                (resolved)="$event && onSubmit($event)"></re-captcha>
+                            <div class="row btn-row">
+                                <div class="col">
+                                    <div class="btn-container">
+                                        <app-btn (onClick)="captchaRef.execute()" i18n [disabled]="!form.valid"
+                                            class="full-wide" [style]="buttonStyles.primarySmall">SUBMIT
+                                        </app-btn>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <ng-container *ngIf="submitted">
+                            <div class="thank-you">
+                                <div class="thank-you-section">
+                                    <div i18n class="title">Thank you for requesting a printed report!</div>
+                                    <div i18n class="content">
+                                        The report will be sent to you within 3 to 5 business days. If you have not
+                                        received it in this time frame, or if any
+                                        issues arise, please contact <a class="email-link"
+                                            href="mailto:dream@allerganaesthetics.com">dream@allerganaesthetics.com</a>
+                                    </div>
+                                </div>
+                                <div class="thankyou-btn-container btn-container">
+                                    <app-btn class="thank-you-btn" routerLink='announcement'
+                                        [style]="buttonStyles.primarySmall">READ
+                                        MORE FROM
+                                        THE DREAM
+                                        INITIATIVE™
+                                    </app-btn>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                </ng-container>
+
+                <ng-template #loading>
+                    <div class="loading">
+                        <app-icon [type]="iconTypes.loading" [spin]="true"></app-icon>
+                    </div>
+                </ng-template>
+            </div>
+            <div class="col image-container">
+                <img src="/assets/img/GROUP12_5868_lrg.jpg" />
+            </div>
+        </div>
+
+    </app-section-content>
+</section>

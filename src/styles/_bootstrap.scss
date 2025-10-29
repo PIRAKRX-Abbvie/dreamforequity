@@ -1,0 +1,21 @@
+@import 'styles/variables';
+
+$grid-gutter-width: 20px;
+
+$grid-breakpoints: (
+  // Small screen / phone
+  sm: breakpoint(sm, min),
+  // Medium screen / tablet
+  md: breakpoint(lg, min),
+  // Large screen / desktop
+  lg: breakpoint(lg, min)
+);
+
+$theme-colors: (
+  'primary': color(primary, base),
+  'warning': color(warning, base)
+);
+
+$border-radius: 0;
+
+@import '~bootstrap/scss/bootstrap';

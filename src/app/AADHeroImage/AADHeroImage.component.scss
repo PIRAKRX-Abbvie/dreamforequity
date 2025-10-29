@@ -1,0 +1,63 @@
+@import 'styles/variables';
+
+:host {
+    max-width: 100%;
+}
+
+.image-container {
+    height: 100%;
+    width: auto;
+    background: color(background, base);
+    position: fixed;
+    &.mobile {
+        display: none;
+    }
+    &.desktop {
+        display: inherit;
+    }
+
+    .disclaimer { 
+        font-style: italic;
+        position: absolute;
+        left: 30px;
+        white-space: nowrap;
+        bottom: 120px;
+        color: color(secondary, light);
+        @media (max-width: breakpoint(md, max)) {
+            bottom: 0;
+        }
+    }
+    @media (max-width: breakpoint(md, max)) {
+      height: 600px;
+      position: inherit;
+    }
+
+    @media (max-width: breakpoint(md, min)) {
+      &.desktop {
+          display: none;
+      }
+      &.mobile {
+          display: inherit;
+      }
+    }
+    
+    img {
+        width: auto;
+        height: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 45%;
+        max-width: 100%;
+        @media (max-width: breakpoint(md, max)) {
+            height: 100%;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+        @media (min-width: breakpoint(xl, min)) {
+            left: 50%;
+         
+        }   
+    }
+}

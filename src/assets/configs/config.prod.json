@@ -1,0 +1,13 @@
+{
+  "stage": "prod",
+  "apiBase": "https://prod-dxp-appsapi.allerganaesthetics.com/api/",
+  "googleAnalytics": {
+    "id": "GTM-PZBXL39",
+    "auth": "gzhYclDIH_rHA41UiBDLLA",
+    "preview": "env-1"
+  },
+  "recaptchaKey": "DREAMFOREQUITY",
+  "siteOrigin": "DREAMFOREQUITY",
+  "siteLanguage": "en-us",
+  "recipient": "dream@allerganaesthetics.com"
+}

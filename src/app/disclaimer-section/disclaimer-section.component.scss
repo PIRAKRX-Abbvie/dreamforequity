@@ -1,0 +1,16 @@
+@import "../../styles/variables";
+.content { 
+    text-align: center;
+    margin: 50px auto 75px;
+    max-width: 60%;
+    @media (max-width: breakpoint(md, max)) {
+        max-width: 100%;
+        padding: 0 25px;
+    }
+    span { 
+        font-style: italic;
+    }
+    .btn-container { 
+        margin: 10px auto;
+    }
+}   

@@ -1,0 +1,36 @@
+<div class="nav-container" [@myScrollTrigger]="animationState">
+    <div class="nav">
+        <div class="logo-container" (click)="onClickScrollTop()">
+            <img class="logo" src="{{currentLogo}}" alt="DREAM Driving Racial Equity in Aesthetic Medicine logo" />
+        </div>
+        <div class="links">
+            <app-btn class="link" (click)="onClickScroll('about')">
+                About the Report
+            </app-btn>
+            <app-btn class="link" (click)="onClickScroll('video-slider')">
+                Stats &amp; Stories
+            </app-btn>
+            <app-btn class="link" (click)="onClickScroll('about-dream-initiative')">
+                The DREAM Initiative®
+            </app-btn>
+            <div class="btn-container">
+                <a href="/assets/pdf/UNB157406-DREAM Forces of Beauty Report.pdf"
+                    target="_blank">
+                    <app-btn [style]="currentButtonStyle">
+                        VIEW REPORT
+                    </app-btn>
+                </a>
+            </div>
+
+        </div>
+        <app-btn class="mobile-menu-toggle" (click)="mobileHeaderToggle()">
+            <fa-icon [icon]="faBars"></fa-icon>
+        </app-btn>
+    </div>
+    <app-mobile-menu [mobileHeaderState]="mobileHeaderOpen" (updateHeaderState)="updateHeaderState($event)">
+    </app-mobile-menu>
+</div>
+
+<div class="animation-block" [@myScrollTrigger]="animationState">
+    
+</div>

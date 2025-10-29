@@ -1,0 +1,52 @@
+@import 'styles/variables';
+
+.content-container {
+  height: 100%;
+  width: 100%;
+  padding: 50px;
+  background: color(background, light);
+  margin-bottom: 46px;
+  
+}
+
+.content {
+  padding-top: 32px;
+  padding-right: 100px;
+  padding-bottom: 40px;
+  
+  h6 {
+    color: color(primary, light);
+  }
+ 
+  p {
+    color: color(primary, light);
+  }
+
+  ul {
+    li {
+      color: color(primary, light);
+      margin-bottom: 5px;
+    }
+  }
+
+  @media (max-width: breakpoint(md, max)) {
+    padding-right: 0;
+  }
+}
+
+.logo-container {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  
+  @media (max-width: breakpoint(md,max)) {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo {
+    height: auto;
+    width: 220px;
+  }
+}

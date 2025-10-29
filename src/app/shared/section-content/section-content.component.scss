@@ -1,0 +1,8 @@
+@import "styles/variables";
+
+.section-content {
+    max-width: breakpoint(lg, max);
+    margin: auto;
+    overflow-x: hidden;
+}
+

@@ -1,0 +1,35 @@
+<section id="video-slider">
+    <div #videoCarouselContainer class="section-container">
+        <h1 class="title">Watch Our Report Come to Life</h1>
+        <swiper #swiper class="mySwiper" [loop]="true" [slidesPerView]="auto" [spaceBetween]="20"
+            [centeredSlides]="true" [navigation]="true" [scrollbar]="{ draggable: true }">
+            <ng-template swiperSlide *ngFor="let video of videos">
+                <div class="slide">
+                    <app-video [videoId]="video.id" [poster]="video.poster">
+                    </app-video>
+                    <div class="content">
+                        <h4 class="video-title">
+                            {{video.title}}
+                        </h4>
+                        <span class="video-content">
+                            {{video.content}}
+                        </span>
+                    </div>
+                </div>
+            </ng-template>
+        </swiper>
+        <div class="btn-container">
+            <a href="/assets/pdf/UNB157406-DREAM Forces of Beauty Report.pdf"
+                target="_blank">
+                <app-btn [style]="buttonStyles.secondary">VIEW REPORT</app-btn>
+            </a>
+        </div>
+        <button class="arrow prev-arrow" (click)="slidePrev()">
+            <app-icon [type]="iconTypes.chevronLeft"></app-icon>
+        </button>
+        <button class="arrow next-arrow" (click)="slideNext()">
+            <app-icon [type]="iconTypes.chevronRight"></app-icon>
+        </button>
+    </div>
+
+</section>

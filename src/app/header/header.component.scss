@@ -1,0 +1,80 @@
+@use "sass:map";
+@import "styles/variables";
+
+:host {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.animation-block { 
+  position: relative;
+  top: 0;
+  z-index: 0;
+  width: 100%;
+}
+.nav-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+    //background-color: color(background, nav);
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    width: 100%;
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin: auto;
+        max-width: breakpoint(lg, max);
+        .logo-container {
+            &:hover {
+                cursor: pointer;
+            }
+            .logo {
+                max-width: 250px;
+                height: auto;
+                margin: 0 20px;
+                @media (max-width: breakpoint(md, max)) {
+                    max-width: 200px;
+                }
+            }
+        }
+        .mobile-menu-toggle {
+            display: none;
+            @media (max-width: breakpoint(md, max)) {
+                display: inherit;
+                align-self: flex-start;
+                padding-top: 10px;
+            }
+            fa-icon {
+                font-size: 35px;
+            }
+        }
+        .links {
+            display: flex;
+            align-items: center;
+            .btn-container {
+                padding-right: 12px;
+            }
+            > * {
+                margin-left: 30px;
+                text-transform: uppercase;
+                font-weight: map-get($fontWeights, medium);
+            }
+            app-btn {
+                border-style: none;
+                border-radius: 100px;
+                &.no-bg {
+                    background: transparent;
+                }
+            }
+            @media (max-width: breakpoint(md, max)) {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,55 @@
+@use "sass:map";
+@import "styles/variables";
+
+#image-grid{    
+    margin-top: 20px;
+
+    @media (max-width: breakpoint(md, max)) {
+        margin-top: 50px;
+    }
+}
+
+.masonry-container {
+    margin-left: 20px;
+}
+
+.masonry-item { 
+    margin-bottom: 20px;
+
+    width: 31%;
+
+    @media (max-width: breakpoint(md, max)) {
+        width: 31%;
+    }
+
+    @media (max-width: breakpoint(sm, max)) {
+        width: 46%;
+    }
+ }
+
+ .masonry-content {
+    background-color: black;
+    color: white;
+
+    padding: 60px 40px;
+    font-size: 20px;    
+    line-height: 26px;
+    min-height: 300px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    
+    @media (max-width: breakpoint(sm, max)) {
+        padding: 60px 30px;
+        font-size: 18px;
+        line-height: 24px;
+    }
+ }
+
+ .masonry-image {
+    width: 100%;
+ }
+
+

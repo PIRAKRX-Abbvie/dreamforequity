@@ -1,0 +1,48 @@
+@import "../../styles/variables";
+
+.container { 
+    text-align: center;
+    margin: 75px auto;
+    max-width: 60%;
+    @media (max-width: breakpoint(md,max)) {
+        max-width: 100%;
+        padding: 0 50px;
+    }
+    .title { 
+        @include font(primary, bold);
+    }
+    .sub-headline {
+        display: flex;
+        align-items: baseline; 
+        justify-content: center;
+        white-space: nowrap;
+        .shutterstock-image { 
+            height: 25px;
+            width: 185px;
+            margin: 10px;
+        }
+        h2 { 
+            color: color(secondary, darkText);
+            font-size: 30px;
+            font-weight: bold;
+        }
+        @media (max-width: breakpoint(sm,max)) { 
+            flex-direction: column;
+            margin: 35px 0;
+            align-items: center;
+            h2 { 
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+    .content {
+        p { 
+            @include font(primary, light);
+            font-size: 18px;
+        }
+    }
+    .btn-container { 
+        margin: 30px auto;
+    }
+}

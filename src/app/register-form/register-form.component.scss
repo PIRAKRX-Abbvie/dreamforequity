@@ -1,0 +1,203 @@
+@import 'styles/variables';
+
+
+.form-container {
+  background: color(background, light);
+  max-width: 450px;
+  padding: 40px;
+  position: fixed;
+  bottom: 100%;
+  right: 0;
+  box-shadow: 0px 3px 8px color(primary, base);
+  opacity: 0;
+  z-index: 10;
+  overflow-y: auto;
+  max-height: calc(100vh - #{$footer-row-max-height-lg});
+  overflow-x: hidden;
+
+  @media (max-width: breakpoint(md, max)){
+    position: relative;
+    top: 20px;
+    box-shadow: none;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 25px;
+    max-width: 100%;
+  }
+
+  @media (min-width: breakpoint(xl,min)) {
+    right: 50%;
+    transform: translateX(breakpoint(xl,min) / 2);
+  }
+
+}
+
+.loading {
+  color: color(primary);
+  font-size: 45px;
+  display: flex;
+  justify-content: center;
+}
+
+label:not(.radio-label),
+legend {
+  @include font(primary, bold);
+
+  &.required {
+    padding-right: 10px;
+    position: relative;
+    &::before {
+      content: '*';
+      position: absolute;
+      top: 0;
+      right: 0px;
+    }
+    &.consent-label {
+      &::before {
+        left: -10px;
+      }
+    }
+  }
+}
+
+.form-control {
+  &:focus {
+    outline: 1px solid color(primary);
+    box-shadow: none;
+  }
+}
+
+select {
+  option {
+    color: color(primary);
+  }
+}
+
+.form-title {
+  @include font(primary, bold);
+
+  padding: 10px;
+  padding-bottom: 25px;
+  font-size: 16px;
+}
+.form-subtitle {
+  font-weight: 200;
+  padding: 10px;
+  padding-bottom: 25px;
+  font-size: 14px;
+}
+label {
+  @include font(primary, bold);
+
+  font-size: 10px;
+  text-transform: uppercase;
+}
+input {
+  border: none;
+  box-shadow: none;
+  border-bottom: 1px solid color(primary, base);
+}
+.radio-label {
+  margin-right: 15px;
+  span {
+    margin-left: 5px;
+  }
+}
+
+.btn-row {
+  padding-top: 20px;
+}
+.btn-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .full-wide {
+    width: 100%;
+  }
+}
+app-btn {
+  height: 50px;
+  margin: auto;
+  @media (max-width: breakpoint(md, max)) {
+    width: fit-content;
+  }
+}
+
+.thank-you {
+  padding: 50px 0;
+
+  .thank-you-section {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+
+    .title {
+      @include font(primary, bold);
+
+      font-size: 24px;
+      padding-bottom: 20px;
+      line-height: 26px;
+      text-align: left;
+      padding-right: 10px;
+    }
+    .content {
+      @include font(primary, regular);
+
+      font-size: 16px;
+      padding-bottom: 30px;
+    }
+  }
+}
+
+.recaptcha-component {
+  position: relative;
+  z-index: 25;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: baseline;
+  padding: 5px 0;
+
+  .input-container {
+    width: auto;
+    
+    input {
+      margin-right: 15px;
+    }
+  }
+
+  
+
+  label {
+    @include font(primary, regular);
+
+    color: color(primary, light);
+    text-transform: none;
+
+    a {
+      color: color(primary, light);
+      text-decoration: underline;
+    }
+
+  }
+}
+
+
+.has-error {
+  label:not(.radio-label),
+  legend,
+  .errors {
+    color: color(warning);
+  }
+
+  input,
+  textarea,
+  select {
+
+    border-color: color(warning);
+  }
+}

@@ -1,0 +1,174 @@
+// https://scotch.io/tutorials/aesthetic-sass-2-colors
+$palette: (
+  primary: (
+    base: #000000,
+    light: #616161,
+    midgray: #666666,
+    dark: #313131,
+    transparent: rgba(255, 255, 255, 0.8),
+    contrast: #ffffff
+  ),
+  secondary: (
+    base: #4b4b4b,
+    light: #f5f5f5,
+    dark: #D8D8D8,
+    darkText: #666666,
+    contrast: #000000
+  ),
+  accent: (
+    base: #00000029,
+    light: null,
+    dark: null
+  ),
+  foreground: (
+    base: #212121,
+    light: #faf6f5,
+    lightest: #ffffff,
+    dark: #000000,
+    darker: null
+  ),
+  background: (
+    base: #313131,
+    light: #ffffff,
+    lighter:#FAF8F6,
+    dark: #000000,
+    nav: #00000027
+  ),
+  error: (
+    base: null
+  ),
+  success: (
+    base: null
+  ),
+  warning: (
+    base: #e34d4d
+  ),
+  border: (
+    base: #E9EEF2,
+  )
+);
+
+@function color($color, $tone: base) {
+  @if map-has-key($palette, $color) {
+    $color: map-get($palette, $color);
+
+    @if map-has-key($color, $tone) {
+      $tone: map-get($color, $tone);
+      @return $tone;
+    }
+
+    @warn "unknown tone `#{$tone}` in color";
+    @return null;
+  }
+
+  @warn "unknown color `#{$color}` in palette";
+  @return null;
+}
+
+$base-font-size: 16px;
+
+// Font Families
+$fontFamilies: (
+  primary: (
+    light: "'normalidad-wide', sans-serif",
+    regular: "'normalidad-wide', sans-serif",
+    medium: "'normalidad-wide', sans-serif",
+    bold: "'normalidad-wide', sans-serif"
+  ),
+  secondary: (
+    light: "'normalidad-wide'",
+    regular: "'normalidad-wide'",
+    medium: "'normalidad-wide'",
+    bold: "'normalidad-wide'"
+  ),
+  link: (
+    regular: "'normalidad-wide', sans-serif"
+  ),
+  icon: (
+    regular: "'Font Awesome 5 Pro'"
+  )
+);
+
+$link-color: color(primary, base);
+
+// Font Weights
+$fontWeights: (
+  ultraLight: 100,
+  light: 300,
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700,
+  extraBold: 800,
+  black: 900
+);
+
+@mixin font($type, $weight: regular) {
+  // Output font family
+  @if map-has-key($fontFamilies, $type) {
+    $type: map-get($fontFamilies, $type);
+
+    @if map-has-key($type, $weight) {
+      font-family: #{map-get($type, $weight)};
+    }
+  }
+
+  // Output font weight
+  @if map-has-key($fontWeights, $weight) {
+    font-weight: map-get($fontWeights, $weight);
+  }
+}
+
+// Transition Values
+$transition-speed: 0.8s;
+$transition-style: ease;
+
+// Breakpoints
+$breakpoints: (
+  sm: (
+    min: 0,
+    max: 767px
+  ),
+  md: (
+    min: 768px,
+    max: 1024px
+  ),
+  lg: (
+    min: 1025px,
+    max: 1520px
+  ),
+  xl: (
+    min: 1521px
+  )
+);
+
+@function breakpoint($breakpoint, $side) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint: map-get($breakpoints, $breakpoint);
+
+    @if map-has-key($breakpoint, $side) {
+      $size: map-get($breakpoint, $side);
+      @return $size;
+    }
+
+    @warn "unknown side `#{$side}` in breakpoint";
+    @return null;
+  }
+
+  @warn "unknown breakpoint `#{$breakpoint}` in breakpoints";
+  @return null;
+}
+
+// Row Min Heights
+$top-row-min-height-sm: 300px;
+$bottom-row-min-height-sm: 300px;
+$country-selector-min-height-sm: 500px;
+$footer-row-max-height-sm: 320px;
+
+$top-row-min-height-lg: 606px;
+$bottom-row-min-height-lg: 387px;
+$country-selector-min-height-lg: $top-row-min-height-lg;
+$footer-row-max-height-lg: 100px;
+
+
+$section-padding: 40px;

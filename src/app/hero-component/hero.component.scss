@@ -1,0 +1,121 @@
+@import "styles/variables";
+
+:host {
+    max-width: 100%;
+}
+
+.hero-container {
+    height: 850px;
+    position: relative;
+    width: auto;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: black;
+    > * {
+        flex: 1;
+    }
+    #video-placeholder,
+    #hero-video {
+        &.hide {
+            display: none;
+        }
+        &.show {
+            display: inherit;
+        }
+    }
+    video,
+    img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        object-fit: cover;
+        z-index: 10;
+    }
+    .title-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        z-index: 100;
+        justify-content: center;
+        text-align: center;
+        > * {
+            text-shadow: 0px 3px 6px color(accent, base);
+        }
+        .title {
+            @include font(primary, bold);
+            font-size: 70px;
+            @media (max-width: breakpoint(md, max)) {
+                font-size: 48px;
+            }
+        }
+        .subtitle {
+            @include font(primary, regular);
+            font-size: 34px;
+            @media (max-width: breakpoint(md, max)) {
+                font-size: 24px;
+            }
+        }
+    }
+    .caret-down-container {
+        position: absolute;
+        bottom: 30px;
+        z-index: 20;
+        .caret-down {
+            color: white;
+            font-size: 50px;
+            background: black;
+            z-index: 100;
+            height: 45px;
+            width: 75px;
+            padding: 5px;
+            padding-top: 15px;
+            margin-top: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .video-controls {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.5), transparent);
+        width: 100%;
+        max-height: 100px;
+        z-index: 100;
+        .container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            max-width: 1520px;
+            .disclaimer {
+                margin: 0 15px;
+                color: white;
+                @media (max-width: breakpoint(sm, max)) {
+                    max-width: 70%;
+                    font-size: 12px;
+                }
+            }
+            app-btn {
+                fa-icon {
+                    color: color(secondary, light);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    @media (max-width: breakpoint(md, max)) {
+                        height: 28px;
+                        width: 28px;
+                    }
+                }
+            }
+            @media (max-width: breakpoint(md, max)) {
+                right: 25px;
+            }
+            @media (max-width: breakpoint(sm, max)) {
+                right: 0;
+            }
+        }
+    }
+}

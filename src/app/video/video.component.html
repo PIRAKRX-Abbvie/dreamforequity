@@ -1,0 +1,7 @@
+<youtube-player 
+    *ngIf="apiLoaded" 
+    class="video" 
+    videoId="{{ videoId }}" 
+    (stateChange)="handleStateChange($event)" 
+    #video
+></youtube-player>

@@ -1,0 +1,117 @@
+<div class="form-container" style="opacity:0;" [@myAnimationTrigger]="animationState">
+  <ng-container *ngIf="recaptchaSiteKey; else loading">
+    <ng-container *ngIf="errored">
+      <div class="error-msg" i18n>
+        An error occurred submitting your form. Please try again later.
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!errored">
+      <form *ngIf="!submitted" [formGroup]="form" aria-labelledby="contact-us-form-title">
+        <div class="row">
+          <div class='form-title'>Enter your information below to request our Forces of Beauty™ report.</div>
+        </div>
+        <div class="row">
+          <div class="col-12 form-group" [ngClass]="{
+            'has-error': hasErrors(form.controls.firstName)
+          }">
+            <label for="firstNameInput" class="required" i18n> First Name</label>
+            <input type="text" class="form-control" id="firstNameInput" formControlName="firstName"
+              [attr.aria-invalid]="hasErrors(form.controls.firstName)" aria-errormessage="firstName-errors" />
+            <small *ngIf="hasErrors(form.controls.firstName)" class="errors" id="firstName-errors">
+              <div *ngIf="isError(form.controls.firstName, 'required')" i18n>
+                First name is required.
+              </div>
+            </small>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-12 form-group" [ngClass]="{
+          'has-error': hasErrors(form.controls.lastName)
+          }">
+            <label for="lastNameInput" class="required" i18n> Last Name </label>
+            <input type="text" class="form-control" id="lastNameInput" formControlName="lastName"
+              [attr.aria-invalid]="hasErrors(form.controls.lastName)" aria-errormessage="lastName-errors" />
+            <small *ngIf="hasErrors(form.controls.lastName)" class="errors" id="lastName-errors">
+              <div *ngIf="isError(form.controls.lastName, 'required')" i18n>
+                Last name is required.
+              </div>
+            </small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 form-group" [ngClass]="{
+                      'has-error': hasErrors(form.controls.email)
+                    }">
+            <label for="emailInput" class="required" i18n> Email </label>
+            <input type="text" class="form-control" id="emailInput" formControlName="email"
+              [attr.aria-invalid]="hasErrors(form.controls.email)" aria-errormessage="email-errors" />
+            <small *ngIf="hasErrors(form.controls.email)" class="errors" id="email-errors">
+              <div *ngIf="isError(form.controls.email, 'required')" i18n>
+                Email is required.
+              </div>
+              <div *ngIf="isError(form.controls.email, 'email')" i18n>
+                Please enter a valid email.
+              </div>
+            </small>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12" [ngClass]="{
+            'has-error': hasErrors(form.controls.checkbox)
+          }">
+            <div class="checkbox-container">
+              <div class="input-container">
+                <input type="checkbox" id="checkbox" formControlName="checkbox"
+                  [attr.aria-invalid]="hasErrors(form.controls.checkbox)" />
+              </div>
+              <label for='checkbox' class="required consent-label" i18n>I consent to receive AbbVie Inc. communications
+                about its
+                products, services, research, events, programs, and other information that may be of interest to me using
+                the contact information I provide. I may withdraw my consent at any time.
+                <br />
+                <br />
+                For information on how AbbVie processes your personal information, please see AbbVie’s
+                <a target='_blank' href="https://www.abbvie.com/privacy.html.">Privacy Notice</a></label>
+            </div>
+          </div>
+        </div>
+        <re-captcha #captchaRef="reCaptcha" [siteKey]="recaptchaSiteKey" size="invisible"
+          (resolved)="$event && onSubmit($event)"></re-captcha>
+        <div class="row btn-row">
+          <div class="col">
+            <div class="btn-container">
+              <app-btn [style]="buttonStyles.primarySmall" (onClick)="captchaRef.execute()" i18n
+                [disabled]="!form.valid" class="full-wide">REGISTER TO GET REPORT</app-btn>
+            </div>
+          </div>
+        </div>
+      </form>
+      <ng-container *ngIf="submitted">
+        <div class="thank-you">
+          <div class="thank-you-section">
+            <div i18n class="title">Registration Successful</div>
+            <div i18n class="content">
+              Thank you for joining us in learning about inclusivity within the world of aesthetics. We will reach out
+              to
+              you via
+              email once our Forces of Beauty™ research report is ready!
+            </div>
+          </div>
+          <div class="thankyou-btn-container btn-container">
+            <app-btn class="thank-you-btn" routerLink='announcement' [style]="buttonStyles.primarySmall">READ MORE FROM
+              THE DREAM
+              INITIATIVE™
+            </app-btn>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</div>
+
+<ng-template #loading>
+  <div class="loading">
+    <app-icon [type]="iconTypes.loading" [spin]="true"></app-icon>
+  </div>
+</ng-template>

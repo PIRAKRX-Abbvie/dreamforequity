@@ -1,0 +1,52 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3951039, 2020-09-22T13:47:20-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: NeueHaasUnicaW1G-Bold by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/neue-haas-unica/bold/
+ * 
+ * Webfont: NeueHaasUnicaW1G-Italic by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/neue-haas-unica/italic/
+ * 
+ * Webfont: NeueHaasUnicaW1G-Light by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/neue-haas-unica/light/
+ * 
+ * Webfont: NeueHaasUnicaW1G-Regular by Linotype
+ * URL: https://www.myfonts.com/fonts/linotype/neue-haas-unica/regular/
+ * 
+ * 
+ * Webfonts copyright: Copyright &amp;#x00A9; 2016 Monotype Imaging Inc. All rights reserved.
+ * 
+ * © 2020 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/3c49bf");
+  
+@font-face {
+  font-family: 'NeueHaasUnica';
+  font-style: italic;
+  font-weight: normal;
+  font-stretch: normal;
+  src: url('webFonts/NeueHaasUnica/italic_normal_normal.woff2') format('woff2'), url('webFonts/NeueHaasUnica/italic_normal_normal.woff') format('woff');
+}
+@font-face {
+  font-family: 'NeueHaasUnicaW1G-Bold';
+  src: url('webFonts/NeueHaasUnicaW1G-Bold/font.woff2') format('woff2'), url('webFonts/NeueHaasUnicaW1G-Bold/font.woff') format('woff');
+}
+@font-face {
+  font-family: 'NeueHaasUnicaW1G-Regular';
+  src: url('webFonts/NeueHaasUnicaW1G-Regular/font.woff2') format('woff2'), url('webFonts/NeueHaasUnicaW1G-Regular/font.woff') format('woff');
+}
+@font-face {
+  font-family: 'NeueHaasUnicaW1G-Light';
+  src: url('webFonts/NeueHaasUnicaW1G-Light/font.woff2') format('woff2'), url('webFonts/NeueHaasUnicaW1G-Light/font.woff') format('woff');
+}
+

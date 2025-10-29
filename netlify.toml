@@ -1,0 +1,10 @@
+[Settings]
+  ID = "{Project}"
+
+[build]
+  functions = "functions/"
+  publish = "dist/AGN-Corporate-Static-DreamForEquity"
+  command = "npm run build"
+
+[dev]
+  publish = "dist/AGN-Corporate-Static-DreamForEquity"

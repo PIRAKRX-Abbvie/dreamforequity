@@ -1,0 +1,62 @@
+@import 'styles/variables';
+
+.press-release-container {
+    background: color(background, light);
+    width: 100%;
+
+    @media (max-width: breakpoint(md,max)) {
+        padding: 40px;
+        padding-bottom: 0;
+    }
+
+    .press-release-header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 45px;
+        img {
+            height: 66px;
+            width: 220px;
+        }
+    }
+    .press-release-content {
+        max-width: 704px;
+        margin: auto;
+        line-height: 26px;
+        padding-bottom: 100px;
+
+        @media (max-width: breakpoint(md,max)) {
+            padding-bottom: 50px;
+        }
+
+        .date {
+
+            @include font(primary, regular);
+
+            font-size: 12px;
+        }
+        .title { 
+            @include font(primary, regular);
+            
+            font-size: 24px;
+            padding: 10px 0;
+        }
+        p {
+            font-size: 14px;
+            color: color(primary, light);
+        }
+        .content-title {
+            @include font(primary, bold);
+        }
+        
+    }
+    .btn-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 50px 0;
+    }
+   
+}

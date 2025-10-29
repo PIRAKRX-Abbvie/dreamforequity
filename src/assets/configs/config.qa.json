@@ -1,0 +1,13 @@
+{
+  "stage": "qa",
+  "apiBase": "https://qa-dxp-appsapi.allerganaesthetics.com/api/",
+  "googleAnalytics": {
+    "id": "GTM-PZBXL39",
+    "auth": "TyvXxwLrk4nQEVN73kVViA",
+    "preview": "env-4"
+  },
+  "recaptchaKey": "DREAMFOREQUITY",
+  "siteOrigin": "DREAMFOREQUITY",
+  "siteLanguage": "en-us",
+  "recipient": "skimszal@definedlogic.com"
+}

@@ -1,0 +1,29 @@
+<div class="hero-container">
+    <video id="hero-video" #heroVideo playsinline loop autoplay [muted]="true"
+        poster="/assets/img/DREAM_Hero_Image_Large.png">
+        <source
+            src="/assets/webm/DREAM_Hero_video.webm"
+            type="video/webm" />
+        <source src="/assets/webm/DREAM_Hero_video.mp4" type="video/mp4" />
+    </video>
+    <div class="title-container">
+        <h1 class="title">Forces of Beauty® 2022</h1>
+        <h6 class="subtitle">A Lens Into Inclusivity in Aesthetics</h6>
+    </div>
+    <div class="video-controls">
+        <div class="container">
+            <div class="disclaimer">
+                Individuals pictured on website were not included in the survey.
+            </div>
+            <app-btn class="play-pause" (click)="handlePlayPause()">
+                <fa-icon [icon]="faPlay" *ngIf="!videoPlaying"></fa-icon>
+                <fa-icon [icon]="faPause" *ngIf="videoPlaying"></fa-icon>
+            </app-btn>
+            <app-btn class="stop" (click)="handleStop()">
+                <fa-icon [icon]="faStop"></fa-icon>
+            </app-btn>
+        </div>
+    </div>
+
+
+</div>
